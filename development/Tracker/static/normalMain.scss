@@ -1,0 +1,88 @@
+@import 'conf';
+@import 'purpleForm';
+@import 'purpleButton';
+@import 'greenButton';
+*::-webkit-scrollbar{
+    display: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+header{
+    font-size: 42px;
+    height: auto;
+    padding: 50px 0 50px 50px;
+    color: $Purple;
+    font-weight: bold;
+}
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 80%;
+    margin: auto ;
+    justify-content: center;
+    // height: calc( 100vh - 150px );
+    // background-color: blue;
+    svg{
+        height: fit-content;
+        margin: auto 0 auto 100px ;
+        width: 380px;
+        height: fit-content;
+        // background-color: red;
+    }
+}
+
+.notHere{
+    width: fit-content;
+    margin: 30px auto;
+    font-weight: bold;
+    font-size: 16px;
+    height: min-content;
+    span{
+        margin: auto 10px;
+        opacity: 50%;
+    }
+    a{
+        text-decoration: none;
+        width: fit-content;
+        margin: 30px auto;
+        height: min-content;
+        border-radius: 20px;
+    }
+}
+@media screen and (max-width: 950px) {
+    header{
+        height: auto;
+        justify-content: center;
+        text-align: center;
+        padding: 50px 0;
+        svg{
+            width: 30vw;
+        }
+    }
+    section{
+        flex-wrap: wrap-reverse;
+        svg{
+            margin: auto 20px ;
+            width: 30vw;
+            padding: 0 0 20px 0;
+            // display: none;
+        }
+    }
+    .notHere{
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        
+    }
+}

@@ -1,0 +1,30 @@
+$Purple : #9747FF;
+$lightPurple : #F5EDFF;
+$green : #A3F1BD;
+$black : #101010;
+$lightGreen : #E9F9EE;
+$pink : #FFC4EB;
+
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: comfortaa;
+    // overflow-x: hidden;
+}
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('./Comfortaa/Comfortaa-VariableFont_wght.ttf');
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

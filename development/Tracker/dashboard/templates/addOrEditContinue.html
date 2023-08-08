@@ -1,0 +1,124 @@
+{% extends 'dashboardBase.html' %}
+
+{% block body %}
+    
+    
+    {% if error %}
+        <div class="errorMessage">
+            {{alreadyExists}}
+        </div>
+    {% endif %}
+    
+    <div class="orgName"> {{organizationLoggedIn|title}} </div>
+
+    <h3 class="pageHeading">Add/Edit Family</h3>
+
+    <div class="leftAndRight">
+        <div class="left">
+            <div class="highlightInfo">
+                <div>
+                    <span>Phone Number :</span>
+                    <span class="info">{{familyPhoneNumber}}</span>
+                </div>
+            </div>
+            <table class="whiteTable">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Aadhar No.</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Delete</th>
+                </tr>
+                {% for member in members %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ member.name|title }}</td>
+                        <td>{{ member.aadhar }}</td>
+                        <td>{{ member.age }}</td>
+                        <td>
+                            {% if member.gender == 'M' %}
+                                Male
+                            {% endif %}
+                            {% if member.gender == 'F' %}
+                                Female
+                            {% endif %}
+                            {% if member.gender == 'O' %}
+                                Other
+                            {% endif %}
+                        </td>
+                        <td>
+                            <!-- delete member form -->
+                            <form action="{% url 'addOrEditContinueView' familyID %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="deleting">
+                                <input type="hidden" name="deleteAadharMember" value="{{member.aadhar}}" >
+                                <button class="deleteTableRow" style="padding: 5px;">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <!-- address form -->
+            <form action="{% url 'addOrEditContinueView' familyID %}" method="post" class="addressForm">
+                {% csrf_token %}
+                <input type="hidden" name="addOrEditAddress">
+                {% if address == 'none' %}
+                    <input type="text" name="address" placeholder="Enter Family's residential address">
+                    <button type="submit" class="blackButton">save address</button>
+                {% else %}
+                    <input type="text" name="address" placeholder="Enter Family's residential address" value="{{familyAddress}}" style="overflow-wrap: break-word;">
+                    <button type="submit" class="blackButton">edit address</button>
+                {% endif %}
+            </form>
+
+            <!-- final save and redirect -->
+            {% if members.count != 0 %}
+                <form action="{% url 'addOrEditContinueView' familyID %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="finalSave">
+                    <button type="submit" class="purpleButton-small">Save</button>
+                </form>
+            {% endif %}
+        </div>
+        <div class="right">
+            <form action="{% url 'addOrEditContinueView' familyID %}"
+             method="post" 
+             class="purpleForm--Small"
+             
+             >
+             {% csrf_token %}
+                <input type="hidden" name="addingMember">
+
+                <h3>Add Member</h3>
+
+                <label for="name">Fullname</label>
+                <input type="text" name="name" required>
+
+                <label for="aadhar">Aadhar</label>
+                <input type="text" name="aadhar" maxlength="12" minlength="12" required>
+
+                <label for="age">Age</label>
+                <input type="text" name="age" maxlength="3" minlength="1" required>
+
+                <label for="gender">Gender</label>
+                <!-- <input type="text" name="gender" required> -->
+                <select name="gender">
+                    <option value="F">Female</option>
+                    <option value="M">Male</option>
+                    <option value="O">Other</option>
+                </select>
+                <button class="purpleButton" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    {% if noWarning == False%}
+        <h4 style="background-color: #F94449; padding: 10px ; color: white; width: fit-content; border-radius: 8px; margin: 10px 0; opacity: .6;">Note : If you leave the page, all the changes will be deleted</h4>
+    {% endif %}
+
+    <script>
+        var staticLinkButton = document.getElementById('addOrEdit');
+        staticLinkButton.style.backgroundColor = '#E9F9EE';
+    </script>
+{% endblock %}

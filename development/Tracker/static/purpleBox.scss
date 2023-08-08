@@ -1,0 +1,28 @@
+.purpleBox{
+    background-color: $lightPurple;
+    // width: 350px;
+    width: max-content;
+    padding: 15px 25px ;
+    border: none;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-weight: bold;
+    p,h5{
+        color: $Purple;
+    }
+    p{
+        padding: 10px 0;
+        font-size: 16px;
+    }
+    h3{
+        color: $black;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width : 900px) {
+    .purpleBox{
+        width: 100%;
+        margin: auto;
+    }
+}

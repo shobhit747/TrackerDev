@@ -1,0 +1,17 @@
+.greenButton{
+    font-size: 20px;
+    padding: 15px 20px;
+    color: $black;
+    background-color: $green;
+    border: 3px solid $green;
+    outline: none;
+    border-radius: 30px;
+    width: fit-content;
+    // margin: 30px 0 20px 0;
+    transition: .3s ease-in-out;
+    font-size: 16px;
+    font-weight: bold;
+    &:hover{
+        background-color: white;
+    }
+}

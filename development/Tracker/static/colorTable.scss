@@ -1,0 +1,35 @@
+.colorTable{
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    width: 850px;
+    overflow: hidden;
+    .heading{
+        background-color: white;
+        color: $black;
+        th{
+            padding: 10px 15px;
+        }
+    }
+    .row{
+        td{
+            padding: 8px 25px;
+        }
+        td:nth-child(1){
+            background-color: $lightGreen;
+            color: green;
+        }
+        td:nth-child(2){
+            background-color: $pink;
+        }
+        td:nth-child(3){
+            background-color: $green;
+        }
+        td:nth-child(4){
+            background-color: $green;
+        }
+        td:nth-child(5){
+            background-color: $lightPurple;
+        }
+    }
+}

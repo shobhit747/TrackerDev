@@ -1,0 +1,29 @@
+{% extends 'normalBase.html' %}
+{% block body %}
+    <div style="width: 100vw; text-align: center; margin-bottom: 30px; line-height: 30px;">
+        <h4>Complete your Registration</h4>
+        <h4 style="color: #9747FF;">{{orgName}}</h4>
+    </div>
+    <section>
+        <form action="{% url 'registrationReceiveOtpView' %}" method="post" class="purpleForm">
+            {% csrf_token %}
+            <h3>Registration</h3>
+            <label for="mobileNumber">Enter 4 digit OTP:</label>
+            <!-- <input type="text" name="localAddress" id="localAddress" required style="height: 80px;"> -->
+            <input type="number" name="otp" id="otp" max="9999" min="1000" placeholder="ex. : 0210 ( 4 digit )"  required>
+
+            <button class="purpleButton" type="submit">Submit</button>
+        </form>
+        <svg width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="160" cy="260" r="150" fill="#9747FF" fill-opacity="0.3"/>
+            <circle cx="160" cy="260" r="155" stroke="#9747FF" stroke-opacity="0.1" stroke-width="10"/>
+            <circle cx="260" cy="160" r="150" fill="#6AE895" fill-opacity="0.6"/>
+            <circle cx="260" cy="160" r="155" stroke="#A3F1BD" stroke-opacity="0.3" stroke-width="10"/>
+        </svg>
+    </section>
+    <div class="notHere" style="text-align: center;">
+        <div style="color: black;">Step 2/3 : Mobile Number</div>
+    </div>
+    
+        
+{% endblock %}

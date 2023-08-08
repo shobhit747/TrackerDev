@@ -1,0 +1,29 @@
+.loadingBar{
+    height: 2px;
+    background-image: linear-gradient(to right,$lightPurple,$Purple);
+    width: 75vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    // display: none;
+    animation-name: loading;
+    animation-duration: 4s;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+}
+
+@keyframes loading {
+    0%{
+        width: 0;
+    }
+    25%{
+        width: 25vw;
+    }
+    50%{
+        width: 50vw;
+    }
+    75%{
+        width: 75vw;
+    }
+}

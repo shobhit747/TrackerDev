@@ -1,0 +1,46 @@
+
+.infoLineFlex{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding: 7px 0;
+    .left{
+        padding: 10px 15px ;
+        border-right: 2px $black solid;
+        width: fit-content;
+        font-size: 19px
+    }
+    .right{
+        padding: 10px 15px;
+        font-size: 24px;
+    }
+}
+
+.staticBlock{
+    @extend .purpleBox;
+    width: max-content;
+    padding: 30px;
+    border-radius: 20px;
+}
+@media screen and (max-width : 620px){
+    .infoLineFlex{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width : 900px){
+    .infoLineFlex{
+        // flex-direction: column;
+        .left{
+            padding: 7px 10px;
+            font-size: 15px;
+        }
+        .right{
+            padding: 7px 10px;
+            font-size: 20px;
+        }
+    }
+    .staticBlock{
+        width: 90%;
+        margin: auto;
+    }
+}

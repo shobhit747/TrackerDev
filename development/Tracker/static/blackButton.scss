@@ -1,0 +1,15 @@
+.blackButton{
+    padding: 10px 15px ;
+    border: 2px solid $black;
+    border-radius: 22px;
+    outline: none;
+    background-color: $black;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transition: .3s ease-in-out;
+}
+.blackButton:hover{
+    background-color: white;
+    color: $black;
+}

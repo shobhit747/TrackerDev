@@ -1,0 +1,72 @@
+{% extends 'dashboardBase.html' %}
+
+{% block body %}
+    <div class="orgName"> {{organizationLoggedIn|title}} </div>
+
+    <h3 class="pageHeading">Family Details</h3>
+
+    <div class="highlightInfo">
+        <div>
+            <span>Family ID :</span>
+            <span class="info">{{family.family_ID}}</span>
+        </div>
+        <div>
+            <span>Phone no. :</span>
+            <span class="info">{{family.phone_number}}</span>
+        </div>
+        <div>
+            <span>Local Address :</span>
+            <span class="info">{{family.residential_address}}</span>
+        </div>
+        <div>
+            <span>Total Members :</span>
+            <span class="info">{{members.count}}</span>
+        </div>
+    </div>
+    <div class="purpleBox">
+        <h3>Family ID Created by : {{who}}</h3>
+        <p>{{createdBy|title}}</p>
+        <h5>( Org ID : {{createdBy.id}} )</h5>
+    </div>
+    <table class="whiteTable--BigFont">
+        <tr>
+            <th>S.No.</th>
+            <th>Name</th>
+            <th>Aadhar No.</th>
+            <th>Age</th>
+            <th>Gender</th>
+        </tr>
+        {% for member in members %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ member.name|title }}</td>
+                <td>{{ member.aadhar }}</td>
+                <td>{{ member.age }}</td>
+                <td>
+                    {% if member.gender == 'M' %}
+                        Male
+                    {% endif %}
+                    {% if member.gender == 'F' %}
+                        Female
+                    {% endif %}
+                    {% if member.gender == 'O' %}
+                        Other
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if who == '( You )' %}
+        <a href="{% url 'addOrEditContinueView' family_ID=family.family_ID %}" class="blackButton"
+        style="text-decoration: none;"
+        >
+            Edit
+        </a>
+    {% else %}
+        <p style="opacity: .4; font-size: 14px;">You cannot edit family profile with ID "{{family.family_ID}}" as it was't created by you.</p>
+    {% endif %}
+    <script>
+        var staticLinkButton = document.getElementById('addOrEdit');
+        staticLinkButton.style.backgroundColor = '#E9F9EE';
+    </script>
+{% endblock %}

@@ -1,0 +1,37 @@
+.errorMessage{
+    background-color: rgb(239, 62, 62);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%,0);
+    // transition: .5s ease-in-out;
+    animation: error 5s ease-in-out ;
+}
+@keyframes error {
+    0%{
+        opacity: 0;
+        bottom: 0;
+    }
+    10%{
+        opacity: 1;
+        bottom: 50px;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
+.fake{
+    color:$Purple;
+}

@@ -1,0 +1,19 @@
+{% extends 'dashboardBase.html' %}
+
+{% block body %}
+
+    <div class="orgName"> {{organizationLoggedIn|title}} </div>
+    <h3 class="pageHeading">Add/Edit Family</h3>
+    <form action="{% url 'addOrEditView' %}" class="whiteForm" method="post">
+        {% csrf_token %}
+        <label for="PhoneNo">Enter family's mobile number</label>
+        <input type="text" name="PhoneNo" maxlength="10" minlength="10" placeholder="ex. : 1234567890">
+        <button type="submit" class="purpleButton">Continue</button>
+    </form>
+
+    <script>
+        var staticLinkButton = document.getElementById('addOrEdit');
+        staticLinkButton.style.backgroundColor = '#E9F9EE';
+    </script>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+#none {
+    color: $green;
+}
+.makeResponsive{
+    display: flex; 
+    flex-direction: row; 
+    gap: 5vw;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 900px) {
+    .makeResponsive {
+        flex-direction: column-reverse;
+        gap: 5vh;
+    }
+  }

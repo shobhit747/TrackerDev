@@ -1,0 +1,240 @@
+@import 'conf';
+@import 'LinkContainer';
+@import 'whiteForm';
+@import 'purpleButton';
+@import 'purpleForm';
+@import 'noColorTable';
+@import 'errorMessage';
+@import 'blackButton';
+@import 'purpleBox';
+@import 'loadingBar';
+@import 'makeResponsive';
+@import 'colorTable';
+@import 'infoLineFlex';
+
+*::-webkit-scrollbar{
+    display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+header{
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+    height: auto;
+    padding: 30px 0 30px 50px;
+    overflow: hidden;
+    svg{
+        height: 25px;
+        width: fit-content;
+        padding-right: 30px;
+    }
+    span{
+        font-size: 25px;
+        font-weight: bold;
+        color: $black;
+    }
+    // a{
+    //     right: 0;
+    //     // margin-right: 0;
+    //     position: absolute;
+    //     top: 0;
+    //     text-decoration: none;
+    //     outline: none;
+    // }
+}
+@media screen and (min-width : 900px){
+    .logout{
+        position: absolute;
+
+    }
+}
+.logout{
+    right: 0;
+    top: 0;
+    margin: 20px 20px 0 auto;
+    text-decoration: none;
+    outline: none;
+}
+.orgName {
+    border-left: 10px solid $pink;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    width: 400px;
+    height: auto;
+    margin-bottom: 50px;
+    text-decoration: underline;
+}
+
+.linkContent{
+    margin-left: 50px;
+    height: auto;
+    position: relative;
+    width: 90%;
+}
+.pageHeading{
+    font-size: 20px;
+    font-weight: bold;
+    color: $black;
+    margin: 50px 0;
+}
+
+.highlightInfo{
+    font-size: 16px;
+    font-weight: bold;
+    color: $black;
+    div{
+        padding: 10px 0;
+    }
+    .info{
+        color: $Purple;
+    }
+
+    &-horizontal{
+        @extend .highlightInfo;
+        display: flex;
+        flex-direction: row;
+        div{
+            padding: 10px;
+        }
+    }
+}
+.addressForm{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin: 20px 0 0 0 ;
+    input{
+        font-size: 14px;
+        font-weight: bold;
+        border: 2px solid $black;
+        border-radius: 20px;
+        padding: 20px 20px;
+        margin: 10px 0;
+        overflow-wrap: break-word;
+    }
+    button{
+        width: fit-content;
+    }
+}
+.leftAndRight{
+    display: flex; 
+    flex-direction: row ; 
+    flex-wrap: wrap;
+    // width: calc( 100% - 245px );
+    width: 100%;
+    .left{
+        width: 50vw;
+        margin-right: 50px;
+        width: 60%;
+        // background-color: red;
+    }
+}
+
+.giveBenefit{
+    width: fit-content; 
+    height: auto; 
+    // padding: 30px 0; 
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    span{
+        padding: 20px 20px 10px 0 ;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width : 900px) {
+    .leftAndRight{
+        display: flex;
+        flex-direction: column;
+        // width: 60vw;
+        // flex-wrap: wrap;
+        .left{
+            width: fit-content;
+            margin: 0 auto 30px auto;
+            table{
+                margin: auto;
+            }
+        }
+        .right{
+            margin: 20px auto 20px 0;
+            width: 100%;
+            form{
+                width: 100%;
+                margin: auto;
+                // padding: 10px;
+                input,select{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.tableBlock{
+    width: 100%;
+}
+@media screen and (max-width : 900px){
+    // body{
+    //     background-color: red;
+    // }
+    header{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+        width: 100%;
+        padding: 30px 0;
+        svg{
+            margin: 25px auto 5px auto;
+            padding: 0;
+            width: min-content;
+            text-anchor: middle;
+        }
+        span{
+            margin: 10px auto;
+            width: fit-content;
+        }
+    }
+    .logout{
+        width: 100vw;
+        text-align: center;
+        display: block;
+        margin: 50px 0;
+        button{
+            width: 200px;
+        }
+    }
+    .pageHeading{
+        width: 100%;
+        text-align: center;
+
+    }
+    .tableBlock{
+        width: 100%;
+        overflow-x: scroll;
+    }
+    .highlightInfo{
+        margin: 40px 0;
+        &-horizontal{
+            @extend .highlightInfo;
+            display: flex;
+            flex-direction: column;
+            div{
+                padding: 10px;
+            }
+        }
+    }
+}

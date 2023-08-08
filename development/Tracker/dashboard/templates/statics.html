@@ -1,0 +1,59 @@
+{% extends 'dashboardBase.html' %}
+
+{% block body %}
+
+    <div class="orgName"> {{organizationLoggedIn|title}} </div>
+    <h3 class="pageHeading">Your Organization Statics</h3>
+
+    <div class="staticBlock">
+        <div class="infoLineFlex">
+            <div class="left">Spended in Month of {{currentMonth}}</div>
+            <div class="right">Rs {{thisMonthsSpend}}/-</div>
+        </div>
+        <div class="infoLineFlex">
+            <div class="left">Total Spend</div>
+            <div class="right">Rs {{totalSpend}}/-</div>
+        </div>
+        <div class="infoLineFlex">
+            <div class="left">Total Beneficiary</div>
+            <div class="right">
+                {% if totalBeneficiary == 0 %}
+                    None
+                {% elif totalBeneficiary == 1 %}
+                    {{totalBeneficiary}} family
+                {% else %}
+                    {{totalBeneficiary}} families
+                {% endif %}
+            </div>
+        </div>
+        <div class="infoLineFlex">
+            <div class="left">New families added in Month of {{currentMonth}}</div>
+            <div class="right">
+                {% if famliesAddedThisMonth == 0 %}
+                    None
+                {% elif famliesAddedThisMonth == 1 %}
+                    {{famliesAddedThisMonth}} family
+                {% else %}
+                    {{famliesAddedThisMonth}} families
+                {% endif %}
+            </div>
+        </div>
+        <div class="infoLineFlex">
+            <div class="left">Families benefited in Month of {{currentMonth}}</div>
+            <div class="right">
+                {% if benefitedThisMonth == 0 %}
+                    None
+                {% elif benefitedThisMonth == 1 %}
+                    {{benefitedThisMonth}} family
+                {% else %}
+                    {{benefitedThisMonth}} families
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script>
+        var staticLinkButton = document.getElementById('statics');
+        staticLinkButton.style.backgroundColor = '#E9F9EE';
+    </script>
+
+{% endblock %}
